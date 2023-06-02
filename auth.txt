@@ -1,0 +1,42 @@
+basically cookies are used to see , whether user is login or not
+once cookie expires user will logout automatically
+
+->httpOnly which is used when we only can access cookie in server side but not on client side
+->give expires time in millisec
+
+//cookieParser
+
+// (req,res,next)
+basically next is used to call next handler during req
+
+for eg:
+app.get("/",(req,res,next)=>{}, (req,res,next)=>{} ....)
+so next calls the next handler
+
+
+//app.post("/login", async(req,res) => {
+    
+    const {name,email} = req.body;
+    //  console.log(req.body);  
+    const user = await User.create({
+        name,
+        email,
+    });
+
+    res.cookie("token",user._id,{
+       httpOnly:true,
+       expires: new Date(Date.now() + 60*1000),
+    });
+    res.redirect("/");
+});
+
+yaha par direct user_.id pass kar rhe uski jagah use karenge JWT package
+//to install npm i jsonwebtoken
+
+//starting mei message exist nhi karega to locals.e=message use karenge
+  <p class="error"><%= locals.message %>  </p>
+
+//baar baar password na dena pade
+//<input type="email" name="email" placeholder="Email" value = "<%= locals.email %>"/>
+
+//than we use bcrypt to hide password for user in our database

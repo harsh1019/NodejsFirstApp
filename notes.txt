@@ -1,0 +1,133 @@
+Modules are basically functions
+buildin Module ,export module
+
+**************creating a server using node*********
+// // Creating a server
+// // 1st way of importing and exporting
+// // const http = require("http");
+
+// // 2nd way of importing exporting
+// import http from "http"
+// import Name,{ name1 , name2, generateLoveperc} from "./features.js";
+// import fs from "fs";
+// import path from "path";
+ console.log(Name);
+
+// yeha exact same name se hi import hoga agar default export in kiya to
+console.log(name1);
+console.log(name2);
+
+// yeh sync mode hn file read ka esme yeh code block karta aage ka
+//code execute nhi hota ,pehle yeh hoga
+const home = fs.readFileSync("./index.html");
+console.log(home);
+
+// // path
+// // console.log(path.dirname("/home/index.js"));
+
+// const server = http.createServer((req,res)=>{
+//     //  server routing
+//     console.log(req.method);
+//     // res.end("<h1>Noice</h1>");
+//     if(req.url === "/")
+//     {
+//         res.end("<h1>Home</h1>");
+
+//         // async method
+//         // fs.readFile("./index.html",(err,home)=>{
+//         //     res.end(home);
+//         // });
+
+
+//         // sync method
+//         // res.end(home);
+//     }
+//     else if(req.url === "/about")
+//     {
+//         res.end("<h1>Love is ${generateLoveperc()}</h1>");
+//     }
+//     else if(req.url === "/contact")
+//     {
+//         res.end("<h1>Contact page</h1>")
+//     }
+//     else{
+//         res.end("<h1>Page Not Found</h1>");
+//     }
+// });
+
+// server.listen(5000,()=>{
+//     console.log("server is working");
+// })
+
+****************************************************
+Express simple boiler plate ki tarah kam karta hn
+server banana easy kardega
+
+baar baar nodemon index.js
+ki jagah hum pakage.json mei script ko update kardenge
+
+  "scripts": {
+    "start" : "node index.js",
+    "dev" : "nodemon index.js"
+  },
+
+npm run dev use karte development k time
+but after deployement npm run start
+
+
+__dirname ,use hota hn commanjs mei
+but yeh type -> module mei nhi kam karta
+
+********EJS*********
+embedded javascript templates;
+manlo humhe simple static file nhi bhejni html ki but
+databse se jo data aaya vo use karna html mei
+
+for eg:
+html code
+<h1>Hello name</h1>
+
+here instead of name , we want hello harsh
+so we have to update that variable in code 
+so we use res.render(), basically used for dynamic data
+
+EJS beginning
+A template engine is software designed to combine templates with a data model to produce, in our case, real HTML code.
+create a views folder, make sure name is views ,default name
+
+EJS partials
+Some parts of websites stay the same across different pages, like the header, footer, and sidebar. EJS provides us with partials that allow us to reuse views.
+
+basically static wale folder mei hi poora frontend rakhenge
+
+
+***********
+form mei se data access kar paye
+ess liye use karenge middle wares
+
+
+<input type="email" name="email" placeholder="Email"/>
+esme agar name="email" ki jagah name="nambo" to baad mei send button karne ke baad server k pass bhi nambo jayega
+fir mei usko access kar sakta using req.body.name or req.body.nambo
+//   ab name mil gaya fir yeh name wagere database mei store kar sakte
+
+
+// users[] ki array banayi and jabtak server run kar rha new users add hote jayenge
+lekin jaise hi server restart hoga user array empty hojaegi
+isliye baaad mei database banayenge
+
+//how to routing in express separately;
+//split routing
+//middlewares
+//customer handler
+
+//how to use it sole and frontend end alg se
+
+//await Message.create({name:req.body.name,email:req.body.email});
+// or
+//pehle hi destructure kar lekin
+const {name,email} = req.body;
+//await Message.create({name:name,email:email});
+and agar key value pair same hn than
+//await Message.create({name,email});
+

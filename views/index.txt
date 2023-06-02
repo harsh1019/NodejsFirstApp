@@ -1,0 +1,32 @@
+<!-- this file is only for revison ,u can delete also -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- styles.css is in public so used directly -->
+    <title>Home</title>
+
+</head>
+<body>
+
+    <main>
+        <!-- yaha method post kardiya ans jaise hi
+        send Message button par click hoga
+     we direct to api specified in action field -->
+         <form method="post" action="/contact">
+            <h1>Contact Here</h1>
+            <input type="text" name="name" placeholder="Name"/>
+            <input type="email" name="email" placeholder="Email"/>
+            <button type="submit">Send Message</button>
+         </form>
+    </main>
+    <!-- <h1>Welcome Home</h1>
+    <p>Hello <%= name %> </p>
+    locals.name ,here locals is an object -->
+
+    <script src="script.js"></script>
+</body>
+</html>

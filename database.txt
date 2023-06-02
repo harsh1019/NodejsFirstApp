@@ -1,0 +1,38 @@
+a single user data is known as document 
+and collection of document is known as collection
+which we make in mongodb
+
+for eg:
+we make collection for messages,
+a different collection for users
+
+//Now to connect mongodb with nodejs
+we use another package known as mongooose
+
+//use command -> (mongo ) 
+to start in terminal
+for adding data in database we have to create Schema
+than we have to make a Model or making a collection
+
+//instead of then ,we convert function to async
+for eg:
+
+app.get("/add", (req,res)=>{
+
+    Message.create({
+        name:"Harsh",
+        email:"harshrulaniya2001@gmail.com"
+    }).then(()=>{
+        res.send("Nice Message added");
+    })
+});
+
+convert to ->
+app.get("/add",async (req,res)=>{
+
+    await Message.create({
+        name:"Harsh",
+        email:"harshrulaniya2001@gmail.com"
+    });
+    res.send("Nice Message added");
+});
